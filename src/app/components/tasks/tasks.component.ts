@@ -13,11 +13,11 @@ export class TasksComponent implements OnInit {
   tasks: Task[] = [];
   newtask:string;
 
-  constructor(private _taskS:TasksService) {
+  constructor(private _taskS:TasksService) {}
+
+  ngOnInit(): void {
     this.getTasks();
   }
-
-  ngOnInit(): void {}
 
   addNewTask(){
     const newDate = new Date();
@@ -27,9 +27,11 @@ export class TasksComponent implements OnInit {
     const newTask:Task = {
       id: uuidv4(),
       title: this.newtask,
-      createDate: finalDate
+      createDate: finalDate,
+      completed: false
     }
     this._taskS.postTasks(newTask);
+    this.newtask = '';
     this.getTasks();
   }
 
