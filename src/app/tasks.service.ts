@@ -19,4 +19,9 @@ export class TasksService {
     return this._http.post<Task>(this.serverURL, task)
     .subscribe(response => response)
   }
+
+  deleteTask(task){
+    return this._http.delete<Task>(this.serverURL+'/'+task.id)
+    .subscribe(response => response)
+  }
 }

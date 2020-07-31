@@ -42,4 +42,9 @@ export class TasksComponent implements OnInit {
     })
   }
 
+  deleteTask(task:Task){
+    this._taskS.deleteTask(task);
+    this.getTasks();
+  }
+
 }
