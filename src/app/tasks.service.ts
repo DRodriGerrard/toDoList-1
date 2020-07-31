@@ -29,4 +29,8 @@ export class TasksService {
     return this._http.put<Task>(this.serverURL+'/'+task.id, task)
     .subscribe(response => response)
   }
+
+  completeAllTasks(tasks:Task[]){
+    return this._http.put<Task[]>(this.serverURL, tasks)
+  }
 }

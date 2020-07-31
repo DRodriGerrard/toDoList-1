@@ -14,10 +14,31 @@
 </div>
 
 <div class="jumbotron">
-    <div class="task" *ngFor="let task of tasks">
-        <app-task [task]="task" 
-        (taskEmitter)="deleteTask($event)" 
-        (taskCompleted)="taskCompleted($event)"
-        (editEmitter)="editTask($event)"></app-task>
+    <div class="row" *ngIf="tasks.length > 0">
+        <div class="col-sm">
+            <div class="buttons">
+                <span>
+                    <button class="btn btn-success" (click)="completeTasks()" *ngIf="confirmAllCompleted === false">
+                        <fa-icon [icon]="faCheck"></fa-icon>
+                    </button>
+                    <button class="btn btn-primary" (click)="noCompleteTasks()" *ngIf="confirmAllCompleted === true">
+                        <fa-icon [icon]="faCheck"></fa-icon>
+                    </button>
+                    <button class="btn btn-danger" (click)="deleteAllTasks()">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg">
+            <div class="task" *ngFor="let task of tasks">
+                <app-task [task]="task" 
+                (taskEmitter)="deleteTask($event)" 
+                (taskCompleted)="taskCompleted($event)"
+                (editEmitter)="editTask($event)"></app-task>
+            </div>
+        </div>
     </div>
 </div>
