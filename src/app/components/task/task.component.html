@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-sm">
+        <div class="form-group">
+            <input type="text" [(ngModel)]="task.title" class="form-control" [disabled]="!editable">
+        </div>
+    </div>
+    <div class="col-">
+        <div>
+            <button class="btn btn-secondary" hidden>H</button>
+        </div>
+        <div>
+            <button class="btn btn-success">C</button>
+        </div>
+        <div>
+            <button class="btn btn-warning">E</button>
+        </div>
+        <div>
+            <button class="btn btn-danger">D</button>
+        </div>
+        
+    </div>
+</div>

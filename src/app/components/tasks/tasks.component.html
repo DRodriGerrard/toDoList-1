@@ -1,0 +1,18 @@
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-sm">
+            <form class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="newtask" name="newtask" aria-describedby="textHelp" placeholder="New Task">
+            </form>
+        </div>
+        <div class="col-">
+            <button type="button" class="btn btn-primary" (click)="addNewTask()">+</button>
+        </div>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="task" *ngFor="let task of tasks">
+        <app-task [task]="task"></app-task>
+    </div>
+</div>
