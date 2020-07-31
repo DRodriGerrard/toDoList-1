@@ -3,6 +3,8 @@ import { Task } from '../../task';
 import { TasksService } from '../../tasks.service';
 import { v4 as uuidv4 } from 'uuid';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tasks',
@@ -12,14 +14,20 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 export class TasksComponent implements OnInit {
 
   faPlus = faPlus;
+  faCheck = faCheck;
+  faTrash = faTrash;
 
   tasks: Task[] = [];
   newtask:string;
+
+  allCompleted:boolean = false;
+  confirmAllCompleted:boolean = false;
 
   constructor(private _taskS:TasksService) {}
 
   ngOnInit(): void {
     this.getTasks();
+    this.allTaskCompleted();
   }
 
   addNewTask(){
@@ -58,4 +66,40 @@ export class TasksComponent implements OnInit {
     this._taskS.editTask(task);
   }
 
+  completeTasks(){
+    this.tasks.forEach(async task =>{
+      task.completed = true;
+      this._taskS.editTask(task)
+      this.allTaskCompleted();
+    })
+  }
+
+  noCompleteTasks(){
+    this.tasks.forEach(async task =>{
+      task.completed = false;
+      this._taskS.editTask(task)
+      this.allTaskCompleted();
+    })
+  }
+
+  allTaskCompleted(){
+    this.tasks.forEach(task =>{
+      if(task.completed === true){
+        this.confirmAllCompleted = true;
+      }
+      else{
+        this.confirmAllCompleted = false;
+      }
+    })
+  }
+
+  deleteAllTasks(){
+    const option = confirm('Are yo sure you want delete all your tasks?');
+    if(option){
+      this.tasks.forEach(async task =>{
+        await this._taskS.deleteTask(task)
+        this.getTasks();
+      })
+    }
+  }
 }

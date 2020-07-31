@@ -16,7 +16,7 @@
             </button>
             <button class="btn btn-warning" (click)="emitEdit()" [disabled]="task.completed === true" *ngIf="editing===true">
                 <fa-icon [icon]="faPlus"></fa-icon>
-            </button>
+            </button> 
         </div>
         <div>
             <button class="btn btn-danger" (click)="emitDelete()">
