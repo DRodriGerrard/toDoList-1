@@ -7,11 +7,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './pages/todolist/todolist.component';
+import { TasksComponent } from './components/tasks/tasks.component';
+import { TaskComponent } from './components/task/task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent
+    TodolistComponent,
+    TasksComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
