@@ -13,6 +13,6 @@
 
 <div class="jumbotron">
     <div class="task" *ngFor="let task of tasks">
-        <app-task [task]="task"></app-task>
+        <app-task [task]="task" (taskEmitter)="deleteTask($event)"></app-task>
     </div>
 </div>
