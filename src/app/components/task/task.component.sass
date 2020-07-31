@@ -1,10 +1,23 @@
 .form-group
     background-color: #ffffff
 
-.form-control
+.form-control:disabled
     background-color: #f5f5f5
 
 .col-
     display: grid
-    grid-template-columns: 1fr 1fr 1fr 1fr
+    grid-template-columns: 1fr 1fr 1fr
     column-gap: 3px
+
+.completed
+    background-color: #bdecb6
+
+
+button, button:hover, button:active, button:focus, button:disabled
+    color: white
+    width: 44px
+
+.editing, .editing:hover, .editing:active, .editing:focus, .editing:disabled
+    background-color: green
+
+
