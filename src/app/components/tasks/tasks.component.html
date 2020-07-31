@@ -6,13 +6,18 @@
             </form>
         </div>
         <div class="col-">
-            <button type="button" class="btn btn-primary" (click)="addNewTask()">+</button>
+            <button type="button" class="btn btn-primary" (click)="addNewTask()">
+                <fa-icon [icon]="faPlus"></fa-icon>
+            </button>
         </div>
     </div>
 </div>
 
 <div class="jumbotron">
     <div class="task" *ngFor="let task of tasks">
-        <app-task [task]="task" (taskEmitter)="deleteTask($event)"></app-task>
+        <app-task [task]="task" 
+        (taskEmitter)="deleteTask($event)" 
+        (taskCompleted)="taskCompleted($event)"
+        (editEmitter)="editTask($event)"></app-task>
     </div>
 </div>

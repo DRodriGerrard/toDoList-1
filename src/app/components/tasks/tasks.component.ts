@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../../task';
 import { TasksService } from '../../tasks.service';
 import { v4 as uuidv4 } from 'uuid';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-tasks',
@@ -9,6 +10,8 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./tasks.component.sass']
 })
 export class TasksComponent implements OnInit {
+
+  faPlus = faPlus;
 
   tasks: Task[] = [];
   newtask:string;
@@ -45,6 +48,14 @@ export class TasksComponent implements OnInit {
   deleteTask(task:Task){
     this._taskS.deleteTask(task);
     this.getTasks();
+  }
+
+  taskCompleted(task:Task){
+    this._taskS.editTask(task);
+  }
+
+  editTask(task:Task){
+    this._taskS.editTask(task);
   }
 
 }
