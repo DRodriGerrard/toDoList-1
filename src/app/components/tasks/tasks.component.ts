@@ -100,7 +100,7 @@ export class TasksComponent implements OnInit {
   }
 
   deleteAllTasks(){
-    const option = confirm('Are yo sure you want delete all your tasks?');
+    const option = confirm('Are yo sure you want to delete all your tasks?');
     if(option){
       this.tasks.forEach(async task =>{
         await this._taskS.deleteTask(task)
