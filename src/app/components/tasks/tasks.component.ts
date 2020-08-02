@@ -62,6 +62,10 @@ export class TasksComponent implements OnInit {
     this._taskS.editTask(task);
   }
 
+  taskNoCompleted(task:Task){
+    this._taskS.editTask(task);
+  }
+
   editTask(task:Task){
     this._taskS.editTask(task);
   }

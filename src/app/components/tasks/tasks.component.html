@@ -37,6 +37,7 @@
                 <app-task [task]="task" 
                 (taskEmitter)="deleteTask($event)" 
                 (taskCompleted)="taskCompleted($event)"
+                (taskNoCompleted)="taskNoCompleted($event)"
                 (editEmitter)="editTask($event)"></app-task>
             </div>
         </div>

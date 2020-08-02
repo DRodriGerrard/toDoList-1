@@ -6,7 +6,10 @@
     </div>
     <div class="col-">
         <div>
-            <button class="btn btn-success" (click)="emitComplete()" [disabled]="task.completed === true">
+            <button class="btn btn-success" (click)="emitComplete()" *ngIf="task.completed === false">
+                <fa-icon [icon]="faCheck"></fa-icon>
+            </button>
+            <button class="btn btn-primary" (click)="emitNoComplete()" *ngIf="task.completed === true">
                 <fa-icon [icon]="faCheck"></fa-icon>
             </button>
         </div>

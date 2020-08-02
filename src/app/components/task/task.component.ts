@@ -19,10 +19,12 @@ export class TaskComponent implements OnInit {
 
   @Output() taskEmitter = new EventEmitter<Task>();
   @Output() taskCompleted = new EventEmitter<Task>();
+  @Output() taskNoCompleted = new EventEmitter<Task>();
   @Output() editEmitter = new EventEmitter<Task>();
   @Input() task:Task;
   editable:boolean = false;
   editing:boolean = false;
+  
 
   constructor() { }
 
@@ -38,6 +40,11 @@ export class TaskComponent implements OnInit {
   emitComplete(){
     this.task.completed = true;
     this.taskCompleted.emit(this.task);
+  }
+
+  emitNoComplete(){
+    this.task.completed = false;
+    this.taskNoCompleted.emit(this.task);
   }
 
   enableEdit(){
