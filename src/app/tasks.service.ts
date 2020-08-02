@@ -17,12 +17,10 @@ export class TasksService {
 
   postTasks(task:Task){
     return this._http.post<Task>(this.serverURL, task)
-    .subscribe(response => response)
   }
 
   deleteTask(task){
     return this._http.delete<Task>(this.serverURL+'/'+task.id)
-    .subscribe(response => response)
   }
 
   editTask(task:Task){
@@ -30,7 +28,7 @@ export class TasksService {
     .subscribe(response => response)
   }
 
-  completeAllTasks(tasks:Task[]){
+  /*completeAllTasks(tasks:Task[]){
     return this._http.put<Task[]>(this.serverURL, tasks)
-  }
+  }*/
 }

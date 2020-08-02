@@ -41,9 +41,10 @@ export class TasksComponent implements OnInit {
       createDate: finalDate,
       completed: false
     }
-    this._taskS.postTasks(newTask);
-    this.newtask = '';
-    this.getTasks();
+    this._taskS.postTasks(newTask).subscribe(() => {
+      this.newtask = '';
+      this.getTasks()
+    })
   }
 
   async getTasks(){
@@ -53,9 +54,10 @@ export class TasksComponent implements OnInit {
     })
   }
 
-  deleteTask(task:Task){
-    this._taskS.deleteTask(task);
-    this.getTasks();
+  async deleteTask(task:Task){
+    await this._taskS.deleteTask(task)
+    .subscribe( () => this.getTasks())
+    
   }
 
   taskCompleted(task:Task){
